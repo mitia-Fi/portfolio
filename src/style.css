@@ -25,6 +25,7 @@ button:focus {
 /* --------- */
 /*  Preloader */
 /* --------- */
+/* Container preloader */
 #preloader {
   position: fixed;
   top: 0;
@@ -33,19 +34,57 @@ button:focus {
   height: 100%;
   z-index: 999999;
   background-color: #0c0513;
-  background-image: url(./Assets/pre.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease;
 }
 
+/* Logo animé */
+#preloader img {
+  width: 100px;
+  height: 100px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animation du logo */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Loading text */
+#preloader span {
+  margin-top: 20px;
+  color: #00c092;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  animation: fade 1.5s infinite;
+}
+
+/* Petit effet de fade pour le texte */
+@keyframes fade {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Disparition */
 #preloader-none {
   opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
+/* Empêche le scroll pendant le chargement */
 #no-scroll {
   overflow: hidden;
   height: 100vh;
 }
+
 
 /* --------- */
 /*Scrollbar   */
@@ -79,6 +118,7 @@ button:focus {
   background-color: #1b1a2ea9 !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px) !important;
 }
 
@@ -242,6 +282,10 @@ button:focus {
   }
 }
 
+.navbar-nav .nav-item a.active::after {
+  width: 100%;
+}
+
 
 /* --------- */
 /* Home section */
@@ -280,6 +324,7 @@ button:focus {
     transform: rotate(0deg);
   }
 }
+
 #tsparticles {
   position: fixed !important;
   background-repeat: no-repeat !important;
@@ -589,31 +634,60 @@ button:focus {
 }
 
 .tech-icons {
-  font-size: 4.5em !important;
-  margin: 15px !important;
-  padding: 10px !important;
-  opacity: 0.93 !important;
-  border: 1.7px solid #00c092 !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-  border-radius: 5px !important;
-  display: table !important;
-  box-shadow: 4px 5px 4px 3px #2e8b57 !important;
-  overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
+  margin: 15px;
+  text-align: center;
+  display: table;
+}
+
+.icon-container {
+  font-size: 4.5em;
+  padding: 10px;
+  border: 1.7px solid #00c092;
+  border-radius: 10px;
+  box-shadow: 4px 5px 4px 3px #2e8b57;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, background-color 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.icon-container:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 2.5px solid #00ffab;
+  background-color: rgba(0, 192, 146, 0.1);
+}
+
+/* Texte qui apparaît au hover */
+.icon-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  color: #00ffab;
+  font-size: 0.15em; /* ajustable selon taille */
+  font-weight: bold;
+  padding: -2px 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  border-top: 1px solid #00c092;
+}
+
+.icon-container:hover .icon-label {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 767px) {
-  .tech-icons {
-    margin: 10px !important;
+  .icon-container {
+    font-size: 3.5em;
   }
 }
 
-.tech-icons:hover {
-  transform: scale(1.05) !important;
-  overflow: hidden !important;
-  border: 2.2px solid  #00c092 !important;
-}
+
 .tech-icon-images {
   padding: 20px !important;
   line-height: 1.6 !important;
@@ -721,6 +795,26 @@ button:focus {
   top: 0;
   background: #fff;
   border: 2px solid #00c092;
+}
+
+.react-pdf__Page {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.react-pdf__Page canvas {
+  pointer-events: none !important;
+}
+
+.react-pdf__Document {
+  position: relative;
+  z-index: 1;
+}
+
+.resume-download-btn {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
 }
 
 .like-item {

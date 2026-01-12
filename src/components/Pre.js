@@ -1,6 +1,13 @@
 import React from "react";
-function Pre(props) {
-  return <div id={props.load ? "preloader" : "preloader-none"}></div>;
+import logo from "../Assets/pre.svg"
+
+function Pre({ load }) {
+  return (
+    <div id={load ? "preloader" : "preloader-none"}>
+      <img src={logo} alt="Logo" />
+      <span>Loading...</span>
+    </div>
+  );
 }
 
 export default Pre;

@@ -22,25 +22,26 @@ function Home2() {
             about <span className="purple"> ME ! </span> 
             </h1>
             <p className="home-about-body">
-              I am a young technology enthusiast..
+            I am a passionate technology enthusiast, curious, creative and motivated; 
               <br />
-              <br />Also extremely motivate to constantly deveolopp 
+              <br />Enjoying the process of creating digital designs and web experiences,  
+              <br /> I am always highly motivated to continuously develop
               <i>
                 <b className="purple"> my SKILLS </b>
               </i>
               <br />
               <br />
               and grow
-                <b className="purple">PROFESSIONALLY . </b>
+                <b className="purple">PROFESSIONALLY. </b>
               <br />
               <br />
 
-              I am confident in my ability to come up 
-              with <b className="purple">interesting ideas</b> to
+              I am confident in my ability     
+              to bring <b className="purple">fresh ideas</b> that help
 
                 <b className="purple">
                   {" "}
-                  move the project forward
+                  move projects forward.
                 </b>
               
             </p>

@@ -41,6 +41,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="icon-colour  home-social-icons"
               >
                 <AiFillGithub />
               </a>
@@ -51,6 +52,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="icon-colour  home-social-icons"
               >
                 <FaSquareXTwitter />
               </a>
@@ -61,6 +63,7 @@ function Footer() {
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="icon-colour  home-social-icons"
               >
                 <FaLinkedinIn />
               </a>

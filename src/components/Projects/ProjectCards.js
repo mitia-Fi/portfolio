@@ -7,21 +7,21 @@ import { BsGithub } from "react-icons/bs";
 function ProjectCards(props) {
   return (
     <Card className="project-card-view">
-      
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
 
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
+        {/* Affiche le bouton GitHub uniquement si ghLink existe */}
+        {props.ghLink && (
+          <Button variant="primary" href={props.ghLink} target="_blank">
+            <BsGithub /> &nbsp;
+            {props.isBlog ? "Blog" : "GitHub"}
+          </Button>
+        )}
 
+        {/* Affiche le bouton Demo uniquement si demoLink existe et ce n'est pas un blog */}
         {!props.isBlog && props.demoLink && (
           <Button
             variant="primary"
@@ -37,4 +37,5 @@ function ProjectCards(props) {
     </Card>
   );
 }
+
 export default ProjectCards;
